@@ -8,6 +8,7 @@ public class Animal {
     private int weight;
     Person owner;
 
+
     public Animal(int id, String animalName, int ves /*,Person owner*/) {
         this.id = id;
         this.animalName = animalName;
