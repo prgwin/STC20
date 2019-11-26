@@ -10,7 +10,7 @@ public class App {
         System.out.println("Введите N определяющую количество случайных чисел");
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
-        List<Integer> listInput = new ArrayList<>();
+        List<Integer> listInput = new ArrayList<>(); // Полей
         List<Double> listOutput = new ArrayList<>();
 
 //        System.out.println(Math.sqrt(number));
@@ -34,6 +34,7 @@ public class App {
         System.out.println("Массив входящих значений "+ listInput);
         System.out.println("Массив квадратных корней исходящих значений "+ listOutput);
         //System.out.println(number);
+        scan.close();
     }
 
 }

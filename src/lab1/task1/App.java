@@ -7,43 +7,41 @@ package lab1.task1;
     Вызвав свой вариант ошибки через оператор throw
  */
 public class App {
+    static String a = null;
+
     public static void main(String[] args) {
         App app = new App();
-        String[] list = {"One", null, "Good"};
-        System.out.println(" Hello, World");
 
-        for (String i : list) {
-            try {
-                app.searchNull(i);
-            } catch (NullPointerException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        try {
-            app.arrayException();
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        }
+        app.searchNull(a);       //Метод вызывающий  NullPointerException
+        app.arrayException();    //Метод вызывающий и обрабатывающий ArrayIndexOutOfBoundsException,
+        app.division(0);      //Метод вызывающий  ArithmeticException
     }
 
     //Метод вызывающий  NullPointerException
-    private void searchNull(String s) throws NullPointerException {
-        if (s == null) {
-            throw new  NullPointerException ("Элемент Null");
-        } else
-            System.out.println(s);
+    public void searchNull(String s) {
+            try {
+                s.trim();
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+            }
     }
-    /* Метод вызывающий и обрабатывающий ArrayIndexOutOfBoundsException,
-       так же вызывающий, но не обрабатывающий ArithmeticException
-    */
 
-    private void arrayException()throws ArithmeticException {
+    // Метод вызывающий и обрабатывающий ArrayIndexOutOfBoundsException,
+    public void arrayException() {
         int[] massiv = {3};
         try {
             massiv[5] = 10;
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Выход за границу массива");
-            throw new  ArithmeticException();
+        }
+    }
+
+    //Метод возбуждающий  ArithmeticException
+    public void division(int i) {
+        try {
+            int result = 3 / i;
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
